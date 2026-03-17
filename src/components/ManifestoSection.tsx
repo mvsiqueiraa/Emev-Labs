@@ -33,17 +33,17 @@ const ManifestoSection = () => {
 
         <div className="space-y-4 md:space-y-6">
           {lines.map((line, i) => (
-            <div key={`${isDark ? 'dark' : 'light'}-${i}`} className="overflow-hidden">
+            <div key={`${isDark ? 'dark' : 'light'}-${i}`} className="overflow-visible">
               <motion.p
-                initial={{ y: 100, opacity: 0 }}
+                initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, margin: "-20px" }}
                 transition={{
                   duration: 0.8,
                   delay: i * 0.15,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className={`font-sans font-semibold text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight ${
+                className={`font-sans font-semibold text-3xl md:text-5xl lg:text-6xl leading-[1.2] md:leading-[1.1] tracking-tight ${
                   line.highlight ? "text-primary text-glow" : "text-foreground"
                 }`}
               >
