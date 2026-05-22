@@ -42,7 +42,7 @@ const Navbar = () => {
     >
       <div className="flex items-center justify-between px-6 md:px-10 py-4">
         {/* Logo */}
-        <a href="#" className="group flex items-center gap-3">
+        <a href="/" className="group flex items-center gap-3">
           <img src="/favicon.png" alt="Emev Labs Icon" className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
           <span className="font-mono text-sm font-bold tracking-[0.3em] text-foreground group-hover:text-primary transition-colors duration-300">
             EMEV LABS
@@ -61,6 +61,8 @@ const Navbar = () => {
             href="https://wa.me/5593991599172?text=Olá! Gostaria de um orçamento."
             target="_blank"
             rel="noopener noreferrer"
+            data-conversion="whatsapp-lead"
+            data-conversion-location="navbar"
             className="group flex items-center gap-2 font-mono text-xs font-bold tracking-widest bg-primary text-primary-foreground px-5 py-2.5 hover:gap-3 transition-all duration-300 hover:shadow-[0_0_40px_hsl(105,18%,40%,0.3)]"
           >
             ORÇAMENTO

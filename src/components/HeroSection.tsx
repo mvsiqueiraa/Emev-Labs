@@ -81,6 +81,8 @@ const HeroSection = () => {
               href="https://wa.me/5593991599172?text=Quero modernizar minha empresa!"
               target="_blank"
               rel="noopener noreferrer"
+              data-conversion="whatsapp-lead"
+              data-conversion-location="hero"
               className="group inline-flex items-center gap-4 font-mono text-sm tracking-widest text-foreground hover:text-primary transition-colors duration-300"
             >
               <span className="w-12 h-[1px] bg-foreground group-hover:bg-primary group-hover:w-20 transition-all duration-500" />
