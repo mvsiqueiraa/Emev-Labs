@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Layout, Bot, Smartphone, ArrowUpRight, Cpu, Network, Briefcase } from "lucide-react";
 
@@ -120,15 +120,15 @@ const ServicesSection = () => {
                     {service.title}
                   </h3>
 
-                  <AnimatePresence>
-                    {activeIndex === i && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden"
-                      >
+                  <motion.div
+                    animate={{
+                      height: activeIndex === i ? "auto" : 0,
+                      opacity: activeIndex === i ? 1 : 0,
+                    }}
+                    initial={false}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="overflow-hidden"
+                  >
                         <p className="mt-3 text-muted-foreground text-sm max-w-lg leading-relaxed font-light">
                           {service.description}
                         </p>
@@ -142,9 +142,7 @@ const ServicesSection = () => {
                             </span>
                           ))}
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  </motion.div>
                 </div>
               </div>
 

@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import SEO, { SITE_URL } from "@/components/SEO";
 
 const sections = [
   {
@@ -55,6 +56,11 @@ const sections = [
 const PrivacyPolicy = () => {
   return (
     <div className="relative min-h-screen bg-background noise-bg">
+      <SEO
+        title="Política de Privacidade | Emev Labs"
+        description="Política de Privacidade da Emev Labs sobre dados pessoais, WhatsApp, cookies, Google Analytics, Google Ads e ferramentas de análise."
+        canonical={`${SITE_URL}/politica-de-privacidade`}
+      />
       <Navbar />
       <main className="px-6 md:px-10 pt-32 pb-24">
         <section className="max-w-4xl mx-auto">

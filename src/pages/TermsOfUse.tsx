@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import SEO, { SITE_URL } from "@/components/SEO";
 
 const sections = [
   {
@@ -63,6 +64,11 @@ const sections = [
 const TermsOfUse = () => {
   return (
     <div className="relative min-h-screen bg-background noise-bg">
+      <SEO
+        title="Termos de Uso | Emev Labs"
+        description="Termos de Uso da Emev Labs para acesso ao site, contato comercial, orçamentos, propriedade intelectual e serviços digitais personalizados."
+        canonical={`${SITE_URL}/termos-de-uso`}
+      />
       <Navbar />
       <main className="px-6 md:px-10 pt-32 pb-24">
         <section className="max-w-4xl mx-auto">

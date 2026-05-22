@@ -1,6 +1,8 @@
 {
   "short_name": "Emev Labs",
-  "name": "Emev Labs",
+  "name": "Emev Labs | Desenvolvimento de Software, Sites, Apps e IA",
+  "description": "Sites de alta performance, aplicativos sob medida, automações com IA e integrações para empresas.",
+  "lang": "pt-BR",
   "icons": [
     {
       "src": "/favicon.png",
@@ -15,6 +17,6 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#71a85e",
+  "background_color": "#71a85e"
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -21,7 +21,7 @@ const Navbar = () => {
           hour: "2-digit",
           minute: "2-digit",
           second: "2-digit",
-        })
+        }),
       );
     };
     tick();
@@ -41,20 +41,21 @@ const Navbar = () => {
       }`}
     >
       <div className="flex items-center justify-between px-6 md:px-10 py-4">
-        {/* Logo */}
         <a href="/" className="group flex items-center gap-3">
-          <img src="/favicon.png" alt="Emev Labs Icon" className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
+          <img
+            src="/favicon.png"
+            alt="Logo da Emev Labs"
+            className="h-6 w-6 group-hover:scale-110 transition-transform duration-300"
+          />
           <span className="font-mono text-sm font-bold tracking-[0.3em] text-foreground group-hover:text-primary transition-colors duration-300">
             EMEV LABS
           </span>
         </a>
 
-        {/* Center - Clock */}
         <span className="hidden md:block font-mono text-xs text-muted-foreground tracking-widest">
           {time} — BRT
         </span>
 
-        {/* Actions */}
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <a
@@ -66,7 +67,10 @@ const Navbar = () => {
             className="group flex items-center gap-2 font-mono text-xs font-bold tracking-widest bg-primary text-primary-foreground px-5 py-2.5 hover:gap-3 transition-all duration-300 hover:shadow-[0_0_40px_hsl(105,18%,40%,0.3)]"
           >
             ORÇAMENTO
-            <ArrowUpRight size={14} className="group-hover:rotate-45 transition-transform duration-300" />
+            <ArrowUpRight
+              size={14}
+              className="group-hover:rotate-45 transition-transform duration-300"
+            />
           </a>
         </div>
       </div>

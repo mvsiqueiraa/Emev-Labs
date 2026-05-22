@@ -50,7 +50,7 @@ const HeroSection = () => {
             </motion.h1>
           </div>
           <div className="overflow-hidden">
-            <motion.h1
+            <motion.div
               initial={{ y: 200, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
@@ -61,7 +61,7 @@ const HeroSection = () => {
               <span className="text-primary text-glow inline-block min-w-[3ch]">
                 {activeWords[wordIndex]}
               </span>
-            </motion.h1>
+            </motion.div>
           </div>
 
           {/* Sub */}
