@@ -78,10 +78,8 @@ const HeroSection = () => {
             </p>
 
             <a
-              href="https://wa.me/5593991599172?text=Quero modernizar minha empresa!"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-conversion="whatsapp-lead"
+              href="/solicitacao-recebida?origem=hero"
+              data-conversion="quote-request"
               data-conversion-location="hero"
               className="group inline-flex items-center gap-4 font-mono text-sm tracking-widest text-foreground hover:text-primary transition-colors duration-300"
             >

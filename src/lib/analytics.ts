@@ -161,6 +161,25 @@ export const trackWhatsAppLead = (location?: string, href?: string) => {
   }
 };
 
+export const trackQuoteRequest = (location?: string, href?: string) => {
+  if (!hasGoogleConfig || typeof window === "undefined") {
+    return;
+  }
+
+  ensureDataLayer();
+
+  window.dataLayer?.push({
+    event: "quote_request",
+    conversion_location: location,
+    link_url: href,
+  });
+
+  window.gtag?.("event", "quote_request", {
+    conversion_location: location,
+    link_url: href,
+  });
+};
+
 export const attachWhatsAppLeadTracking = () => {
   if (typeof window === "undefined" || window.__emevWhatsAppTracking) {
     return;
@@ -173,17 +192,29 @@ export const attachWhatsAppLeadTracking = () => {
       return;
     }
 
-    const link = target.closest<HTMLAnchorElement>(
+    const leadLink = target.closest<HTMLAnchorElement>(
       'a[data-conversion="whatsapp-lead"]',
     );
 
-    if (!link) {
+    if (leadLink) {
+      trackWhatsAppLead(
+        leadLink.dataset.conversionLocation,
+        leadLink.href,
+      );
       return;
     }
 
-    trackWhatsAppLead(
-      link.dataset.conversionLocation,
-      link.href,
+    const quoteLink = target.closest<HTMLAnchorElement>(
+      'a[data-conversion="quote-request"]',
+    );
+
+    if (!quoteLink) {
+      return;
+    }
+
+    trackQuoteRequest(
+      quoteLink.dataset.conversionLocation,
+      quoteLink.href,
     );
   });
 

@@ -35,10 +35,8 @@ const Footer = () => {
 
         <div className="flex items-center gap-4">
           <a
-            href="https://wa.me/5593991599172"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-conversion="whatsapp-lead"
+            href="/solicitacao-recebida?origem=footer"
+            data-conversion="quote-request"
             data-conversion-location="footer"
             className="text-muted-foreground hover:text-primary transition-colors duration-300"
             aria-label="WhatsApp"

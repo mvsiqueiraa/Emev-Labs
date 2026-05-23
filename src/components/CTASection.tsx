@@ -37,10 +37,8 @@ const CTASection = () => {
           className="mt-14"
         >
           <a
-            href="https://wa.me/5593991599172?text=Quero modernizar minha empresa!"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-conversion="whatsapp-lead"
+            href="/solicitacao-recebida?origem=cta"
+            data-conversion="quote-request"
             data-conversion-location="cta"
             className="group inline-flex items-center gap-4 bg-primary text-primary-foreground font-mono text-sm font-bold tracking-widest px-10 py-5 transition-all duration-300 hover:gap-6 hover:shadow-[0_0_80px_hsl(105,18%,40%,0.3)]"
           >

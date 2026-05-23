@@ -59,10 +59,8 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <a
-            href="https://wa.me/5593991599172?text=Olá! Gostaria de um orçamento."
-            target="_blank"
-            rel="noopener noreferrer"
-            data-conversion="whatsapp-lead"
+            href="/solicitacao-recebida?origem=navbar"
+            data-conversion="quote-request"
             data-conversion-location="navbar"
             className="group flex items-center gap-2 font-mono text-xs font-bold tracking-widest bg-primary text-primary-foreground px-5 py-2.5 hover:gap-3 transition-all duration-300 hover:shadow-[0_0_40px_hsl(105,18%,40%,0.3)]"
           >
