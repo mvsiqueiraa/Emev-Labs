@@ -15,7 +15,7 @@ const RequestReceived = () => {
         canonical={`${SITE_URL}/solicitacao-recebida`}
       />
       <Navbar />
-      <main className="min-h-screen px-6 md:px-10 pt-32 pb-24 flex items-center">
+      <main id="conteudo-principal" tabIndex={-1} className="min-h-screen px-6 md:px-10 pt-32 pb-24 flex items-center">
         <section className="max-w-4xl mx-auto w-full">
           <div className="flex items-center gap-3 font-mono text-xs tracking-[0.4em] text-primary uppercase mb-8">
             <CheckCircle2 size={18} />
@@ -25,6 +25,10 @@ const RequestReceived = () => {
           <h1 className="font-sans font-semibold text-4xl md:text-6xl tracking-tight text-foreground leading-tight">
             Solicitação recebida.
           </h1>
+
+          <p className="sr-only" role="status">
+            Sua solicitação de orçamento foi recebida.
+          </p>
 
           <p className="mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-foreground/80">
             Obrigado pelo interesse na Emev Labs. Para concluir o pedido de
@@ -38,7 +42,7 @@ const RequestReceived = () => {
               rel="noopener noreferrer"
               data-conversion="whatsapp-lead"
               data-conversion-location="request-received"
-              className="group inline-flex items-center justify-center gap-4 bg-primary text-primary-foreground font-mono text-sm font-bold tracking-widest px-8 py-5 transition-all duration-300 hover:gap-6 hover:shadow-[0_0_80px_hsl(105,18%,40%,0.3)]"
+              className="a11y-focus group inline-flex items-center justify-center gap-4 bg-primary text-primary-foreground font-mono text-sm font-bold tracking-widest px-8 py-5 transition-all duration-300 hover:gap-6 hover:shadow-[0_0_80px_hsl(105,18%,40%,0.3)]"
             >
               CONTINUAR NO WHATSAPP
               <ArrowUpRight

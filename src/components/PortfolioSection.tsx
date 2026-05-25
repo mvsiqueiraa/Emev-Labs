@@ -74,13 +74,12 @@ const PortfolioSection = () => {
               </div>
             </div>
             
-            <a
-              href="#"
+            <div
+              aria-hidden="true"
               className="mt-4 md:mt-0 flex w-12 h-12 items-center justify-center border border-border group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300"
-              aria-label="Ver Case"
             >
               <ArrowUpRight size={20} className="text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-            </a>
+            </div>
           </div>
         </motion.div>
       </div>

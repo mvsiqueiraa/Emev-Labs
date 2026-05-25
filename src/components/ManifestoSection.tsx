@@ -21,6 +21,9 @@ const ManifestoSection = () => {
   return (
     <section className="pt-32 pb-16 md:pt-44 md:pb-24 px-6 md:px-10">
       <div className="max-w-5xl mx-auto">
+        <h2 className="sr-only">
+          {isDark ? "Sobre o laboratório Emev Labs" : "Manifesto da Emev Labs"}
+        </h2>
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

@@ -95,12 +95,20 @@ const ServicesSection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="group border-b border-border cursor-pointer"
+            className="group border-b border-border"
             onMouseEnter={() => setActiveIndex(i)}
             onMouseLeave={() => setActiveIndex(null)}
           >
-            <div className="px-6 md:px-10 py-8 md:py-10 flex items-start md:items-center justify-between gap-6 transition-all duration-500 hover:bg-secondary/50">
-              <div className="flex items-start md:items-center gap-6 md:gap-10 flex-1">
+            <button
+              type="button"
+              aria-expanded={activeIndex === i}
+              aria-controls={`service-details-${service.id}`}
+              className="w-full px-6 md:px-10 py-8 md:py-10 flex items-start md:items-center justify-between gap-3 sm:gap-6 text-left transition-all duration-500 hover:bg-secondary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
+              onFocus={() => setActiveIndex(i)}
+              onBlur={() => setActiveIndex(null)}
+              onClick={() => setActiveIndex(i)}
+            >
+              <div className="flex min-w-0 items-start md:items-center gap-3 sm:gap-6 md:gap-10 flex-1">
                 {/* Number */}
                 <span className="font-mono text-xs text-muted-foreground w-8 pt-1 md:pt-0">
                   {service.id}
@@ -114,36 +122,9 @@ const ServicesSection = () => {
                   />
                 </div>
 
-                {/* Content */}
-                <div className="flex-1">
-                  <h3 className="font-sans font-semibold text-lg md:text-xl text-foreground group-hover:text-secondary-foreground transition-colors duration-300">
-                    {service.title}
-                  </h3>
-
-                  <motion.div
-                    animate={{
-                      height: activeIndex === i ? "auto" : 0,
-                      opacity: activeIndex === i ? 1 : 0,
-                    }}
-                    initial={false}
-                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
-                  >
-                        <p className="mt-3 text-muted-foreground text-sm max-w-lg leading-relaxed font-light">
-                          {service.description}
-                        </p>
-                        <div className="flex gap-3 mt-4">
-                          {service.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="font-mono text-[10px] tracking-widest text-primary/70 border border-primary/20 px-2 py-1"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                  </motion.div>
-                </div>
+                <h3 className="min-w-0 font-sans font-semibold text-lg md:text-xl text-foreground [overflow-wrap:anywhere] group-hover:text-secondary-foreground transition-colors duration-300">
+                  {service.title}
+                </h3>
               </div>
 
               {/* Arrow */}
@@ -151,7 +132,34 @@ const ServicesSection = () => {
                 size={20}
                 className="text-muted-foreground group-hover:text-secondary-foreground group-hover:rotate-45 transition-all duration-300 mt-1 md:mt-0"
               />
-            </div>
+            </button>
+            <motion.div
+              id={`service-details-${service.id}`}
+              animate={{
+                height: activeIndex === i ? "auto" : 0,
+                opacity: activeIndex === i ? 1 : 0,
+              }}
+              aria-hidden={activeIndex !== i}
+              initial={false}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="overflow-hidden px-6 md:px-10"
+            >
+              <div className="pb-8 md:pb-10 pl-0 md:pl-24">
+                <p className="text-muted-foreground text-sm max-w-lg leading-relaxed font-light">
+                  {service.description}
+                </p>
+                <div className="flex gap-3 mt-4">
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="font-mono text-[10px] tracking-widest text-primary/70 border border-primary/20 px-2 py-1"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         ))}
       </div>

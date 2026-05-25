@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 
 const Navbar = () => {
@@ -31,6 +32,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
+      aria-label="Navegação principal"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, delay: 0.5 }}
@@ -41,16 +43,16 @@ const Navbar = () => {
       }`}
     >
       <div className="flex items-center justify-between px-6 md:px-10 py-4">
-        <a href="/" className="group flex items-center gap-3">
+        <Link to="/" className="a11y-focus group flex items-center gap-3">
           <img
             src="/favicon.png"
             alt="Logo da Emev Labs"
             className="h-6 w-6 group-hover:scale-110 transition-transform duration-300"
           />
-          <span className="font-mono text-sm font-bold tracking-[0.3em] text-foreground group-hover:text-primary transition-colors duration-300">
+          <span className="hidden sm:inline font-mono text-sm font-bold tracking-[0.3em] text-foreground group-hover:text-primary transition-colors duration-300">
             EMEV LABS
           </span>
-        </a>
+        </Link>
 
         <span className="hidden md:block font-mono text-xs text-muted-foreground tracking-widest">
           {time} — BRT
@@ -58,18 +60,18 @@ const Navbar = () => {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <a
-            href="/solicitacao-recebida?origem=navbar"
+          <Link
+            to="/solicitacao-recebida?origem=navbar"
             data-conversion="quote-request"
             data-conversion-location="navbar"
-            className="group flex items-center gap-2 font-mono text-xs font-bold tracking-widest bg-primary text-primary-foreground px-5 py-2.5 hover:gap-3 transition-all duration-300 hover:shadow-[0_0_40px_hsl(105,18%,40%,0.3)]"
+            className="a11y-focus group flex items-center gap-2 font-mono text-xs font-bold tracking-widest bg-primary text-primary-foreground px-5 py-2.5 hover:gap-3 transition-all duration-300 hover:shadow-[0_0_40px_hsl(105,18%,40%,0.3)]"
           >
-            ORÇAMENTO
+            <span className="hidden sm:inline">ORÇAMENTO</span>
             <ArrowUpRight
               size={14}
               className="group-hover:rotate-45 transition-transform duration-300"
             />
-          </a>
+          </Link>
         </div>
       </div>
     </motion.nav>

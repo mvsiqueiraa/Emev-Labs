@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { useAccessibility } from "./AccessibilityProvider";
 
 interface CounterProps {
   target: number;
@@ -12,9 +13,11 @@ const Counter = ({ target, suffix = "", prefix = "", label }: CounterProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [count, setCount] = useState(0);
+  const { prefersReducedMotion } = useAccessibility();
 
   useEffect(() => {
     if (!isInView) return;
+    if (prefersReducedMotion) return;
     let start = 0;
     const duration = 2000;
     const step = target / (duration / 16);
@@ -28,13 +31,15 @@ const Counter = ({ target, suffix = "", prefix = "", label }: CounterProps) => {
       }
     }, 16);
     return () => clearInterval(timer);
-  }, [isInView, target]);
+  }, [isInView, prefersReducedMotion, target]);
+
+  const displayedCount = isInView && prefersReducedMotion ? target : count;
 
   return (
     <div ref={ref}>
       <p className="font-sans font-semibold text-5xl md:text-7xl lg:text-8xl text-secondary-foreground tabular-nums tracking-tight">
         {prefix}
-        {count.toLocaleString("pt-BR")}
+        {displayedCount.toLocaleString("pt-BR")}
         <span className="text-primary">{suffix}</span>
       </p>
       <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mt-3 uppercase">
@@ -48,6 +53,7 @@ const StatsSection = () => {
   return (
     <section className="py-32 md:py-44 px-6 md:px-10 bg-secondary border-y border-border">
       <div className="max-w-6xl mx-auto">
+        <h2 className="sr-only">Resultados da Emev Labs</h2>
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

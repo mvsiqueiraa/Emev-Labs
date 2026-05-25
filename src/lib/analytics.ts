@@ -25,8 +25,8 @@ const ensureDataLayer = () => {
   window.dataLayer = window.dataLayer || [];
   window.gtag =
     window.gtag ||
-    function gtag() {
-      window.dataLayer?.push(arguments);
+    function gtag(...args: unknown[]) {
+      window.dataLayer?.push(args);
     };
 };
 

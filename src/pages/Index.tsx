@@ -47,7 +47,7 @@ const Index = () => {
         jsonLd={homeJsonLd}
       />
       <Navbar />
-      <main>
+      <main id="conteudo-principal" tabIndex={-1}>
         <HeroSection />
         <MarqueeBand />
         <ManifestoSection />

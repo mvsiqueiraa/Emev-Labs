@@ -1,8 +1,9 @@
 import { Linkedin, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border" aria-label="Rodapé">
       <div className="px-6 md:px-10 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <img
@@ -19,36 +20,36 @@ const Footer = () => {
           <span className="font-mono text-xs text-muted-foreground">
             Feito com código de verdade.
           </span>
-          <a
-            href="/termos-de-uso"
-            className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors duration-300"
+          <Link
+            to="/termos-de-uso"
+            className="a11y-focus font-mono text-xs text-muted-foreground hover:text-primary transition-colors duration-300"
           >
             Termos de Uso
-          </a>
-          <a
-            href="/politica-de-privacidade"
-            className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors duration-300"
+          </Link>
+          <Link
+            to="/politica-de-privacidade"
+            className="a11y-focus font-mono text-xs text-muted-foreground hover:text-primary transition-colors duration-300"
           >
             Privacidade
-          </a>
+          </Link>
         </div>
 
         <div className="flex items-center gap-4">
-          <a
-            href="/solicitacao-recebida?origem=footer"
+          <Link
+            to="/solicitacao-recebida?origem=footer"
             data-conversion="quote-request"
             data-conversion-location="footer"
-            className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            aria-label="WhatsApp"
+            className="a11y-focus text-muted-foreground hover:text-primary transition-colors duration-300"
+            aria-label="Solicitar orçamento"
           >
             <MessageCircle size={16} />
-          </a>
+          </Link>
           <a
             href="https://www.linkedin.com/in/marcos-vinicius-dos-s-siqueira/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            aria-label="LinkedIn"
+            className="a11y-focus text-muted-foreground hover:text-primary transition-colors duration-300"
+            aria-label="Perfil da Emev Labs no LinkedIn"
           >
             <Linkedin size={16} />
           </a>

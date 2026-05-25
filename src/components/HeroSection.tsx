@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useTheme } from "next-themes";
+import { Link } from "react-router-dom";
+import { useAccessibility } from "./AccessibilityProvider";
 
 const words = ["RESOLVE.", "ESCALA.", "CONVERTE.", "FUNCIONA."];
 const darkWords = ["INTELIGENTES.", "EFICIENTES.", "ESCALÁVEIS.", "ROBUSTOS."];
@@ -9,16 +11,23 @@ const darkWords = ["INTELIGENTES.", "EFICIENTES.", "ESCALÁVEIS.", "ROBUSTOS."];
 const HeroSection = () => {
   const [wordIndex, setWordIndex] = useState(0);
   const { theme } = useTheme();
+  const { prefersReducedMotion } = useAccessibility();
 
   const isDark = theme === "dark";
   const activeWords = isDark ? darkWords : words;
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % activeWords.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, [activeWords.length]);
+  }, [activeWords.length, prefersReducedMotion]);
+
+  const displayedWord = prefersReducedMotion ? activeWords[0] : activeWords[wordIndex];
 
   return (
     <section className="relative min-h-screen flex flex-col justify-between overflow-hidden">
@@ -59,7 +68,7 @@ const HeroSection = () => {
             >
               {isDark ? "EM PRODUTOS DIGITAIS " : "QUE "}
               <span className="text-primary text-glow inline-block min-w-[3ch]">
-                {activeWords[wordIndex]}
+                {displayedWord}
               </span>
             </motion.div>
           </div>
@@ -77,15 +86,15 @@ const HeroSection = () => {
                 : "Esqueça o hype. Criamos sites, apps e automações que fazem sua empresa vender mais."}
             </p>
 
-            <a
-              href="/solicitacao-recebida?origem=hero"
+            <Link
+              to="/solicitacao-recebida?origem=hero"
               data-conversion="quote-request"
               data-conversion-location="hero"
-              className="group inline-flex items-center gap-4 font-mono text-sm tracking-widest text-foreground hover:text-primary transition-colors duration-300"
+              className="a11y-focus group inline-flex items-center gap-4 font-mono text-sm tracking-widest text-foreground hover:text-primary transition-colors duration-300"
             >
               <span className="w-12 h-[1px] bg-foreground group-hover:bg-primary group-hover:w-20 transition-all duration-500" />
               {isDark ? "VEM COM A GENTE?" : "INICIAR PROJETO"}
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>
@@ -98,15 +107,19 @@ const HeroSection = () => {
         className="pb-10 px-6 md:px-10 flex justify-center"
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          animate={prefersReducedMotion ? undefined : { y: [0, 8, 0] }}
+          transition={
+            prefersReducedMotion
+              ? undefined
+              : { repeat: Infinity, duration: 2, ease: "easeInOut" }
+          }
         >
           <ArrowDown size={16} className="text-muted-foreground" />
         </motion.div>
       </motion.div>
 
       {/* Large background number */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 pointer-events-none select-none">
+      <div className="a11y-decorative absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 pointer-events-none select-none">
         <span className="font-sans font-bold text-[20rem] md:text-[35rem] leading-none text-foreground/[0.02]">
           EL
         </span>

@@ -62,7 +62,7 @@ const PrivacyPolicy = () => {
         canonical={`${SITE_URL}/politica-de-privacidade`}
       />
       <Navbar />
-      <main className="px-6 md:px-10 pt-32 pb-24">
+      <main id="conteudo-principal" tabIndex={-1} className="px-6 md:px-10 pt-32 pb-24">
         <section className="max-w-4xl mx-auto">
           <p className="font-mono text-xs tracking-[0.4em] text-primary uppercase mb-8">
             // PRIVACIDADE

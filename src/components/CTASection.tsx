@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   return (
@@ -36,18 +37,18 @@ const CTASection = () => {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="mt-14"
         >
-          <a
-            href="/solicitacao-recebida?origem=cta"
+          <Link
+            to="/solicitacao-recebida?origem=cta"
             data-conversion="quote-request"
             data-conversion-location="cta"
-            className="group inline-flex items-center gap-4 bg-primary text-primary-foreground font-mono text-sm font-bold tracking-widest px-10 py-5 transition-all duration-300 hover:gap-6 hover:shadow-[0_0_80px_hsl(105,18%,40%,0.3)]"
+            className="a11y-focus group inline-flex items-center gap-4 bg-primary text-primary-foreground font-mono text-sm font-bold tracking-widest px-10 py-5 transition-all duration-300 hover:gap-6 hover:shadow-[0_0_80px_hsl(105,18%,40%,0.3)]"
           >
             FALAR COM A EMEV LABS
             <ArrowUpRight
               size={18}
               className="group-hover:rotate-45 transition-transform duration-300"
             />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
