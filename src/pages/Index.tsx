@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import ProductShowcaseSection from "@/components/ProductShowcaseSection";
 import MarqueeBand from "@/components/MarqueeBand";
 import ManifestoSection from "@/components/ManifestoSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -50,6 +51,7 @@ const Index = () => {
       <Navbar />
       <main id="conteudo-principal" tabIndex={-1}>
         <HeroSection />
+        <ProductShowcaseSection />
         <MarqueeBand />
         <ManifestoSection />
         <ServicesSection />
