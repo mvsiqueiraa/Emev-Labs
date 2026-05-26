@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import SEO, { SITE_URL } from "@/components/SEO";
 
 const WHATSAPP_URL =
-  "https://wa.me/5593991599172?text=Olá! Gostaria de solicitar um orçamento para um projeto.";
+  "https://wa.me/559374006321?text=Olá! Gostaria de solicitar um orçamento para um projeto.";
 
 const RequestReceived = () => {
   return (

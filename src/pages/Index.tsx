@@ -15,6 +15,7 @@ const homeJsonLd = {
   name: "Emev Labs",
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.png`,
+  telephone: "+55 93 7400-6321",
   description:
     "Laboratório independente de tecnologia especializado em sites de alta performance, aplicativos sob medida, automações com IA e integrações para empresas.",
   founder: {
