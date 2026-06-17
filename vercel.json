@@ -1,4 +1,28 @@
 {
+  "headers": [
+    {
+      "source": "/solicitacao-recebida",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "emev-labs.vercel.app"
+        }
+      ],
+      "destination": "https://emevlabs.xyz/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

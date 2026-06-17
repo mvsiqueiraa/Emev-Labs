@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://emev-labs.vercel.app/sitemap.xml
+Sitemap: https://emevlabs.xyz/sitemap.xml

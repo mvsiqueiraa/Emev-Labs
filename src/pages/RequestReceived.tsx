@@ -13,6 +13,7 @@ const RequestReceived = () => {
         title="Solicitação recebida | Emev Labs"
         description="Solicitação de orçamento recebida pela Emev Labs. Continue pelo WhatsApp para enviar os detalhes do projeto."
         canonical={`${SITE_URL}/solicitacao-recebida`}
+        robots="noindex, follow"
       />
       <Navbar />
       <main id="conteudo-principal" tabIndex={-1} className="min-h-screen px-6 md:px-10 pt-32 pb-24 flex items-center">

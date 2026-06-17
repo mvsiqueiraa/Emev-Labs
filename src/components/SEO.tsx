@@ -4,10 +4,11 @@ type SEOProps = {
   canonical?: string;
   description: string;
   jsonLd?: Record<string, unknown>;
+  robots?: string;
   title: string;
 };
 
-const SITE_URL = "https://emev-labs.vercel.app";
+const SITE_URL = "https://emevlabs.xyz";
 
 const setMeta = (selector: string, attribute: string, value: string) => {
   const tag = document.head.querySelector(selector);
@@ -17,11 +18,18 @@ const setMeta = (selector: string, attribute: string, value: string) => {
   }
 };
 
-const SEO = ({ canonical = SITE_URL, description, jsonLd, title }: SEOProps) => {
+const SEO = ({
+  canonical = SITE_URL,
+  description,
+  jsonLd,
+  robots = "index, follow",
+  title,
+}: SEOProps) => {
   useEffect(() => {
     document.title = title;
 
     setMeta('meta[name="description"]', "content", description);
+    setMeta('meta[name="robots"]', "content", robots);
     setMeta('meta[property="og:title"]', "content", title);
     setMeta('meta[property="og:description"]', "content", description);
     setMeta('meta[property="og:url"]', "content", canonical);
@@ -39,7 +47,7 @@ const SEO = ({ canonical = SITE_URL, description, jsonLd, title }: SEOProps) => 
       script.textContent = JSON.stringify(jsonLd);
       document.head.appendChild(script);
     }
-  }, [canonical, description, jsonLd, title]);
+  }, [canonical, description, jsonLd, robots, title]);
 
   return null;
 };
