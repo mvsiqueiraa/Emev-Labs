@@ -1,7 +1,8 @@
 type ConsentValue = "accepted" | "rejected";
 
+const DEFAULT_GOOGLE_TAG_ID = "G-81PVKWJHJT";
 const GTM_ID = import.meta.env.VITE_GTM_ID;
-const GOOGLE_TAG_ID = import.meta.env.VITE_GOOGLE_TAG_ID;
+const GOOGLE_TAG_ID = DEFAULT_GOOGLE_TAG_ID;
 const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 const GOOGLE_ADS_ID = import.meta.env.VITE_GOOGLE_ADS_ID;
 const GOOGLE_ADS_CONVERSION_LABEL = import.meta.env
@@ -128,8 +129,10 @@ export const setAnalyticsConsent = (value: ConsentValue) => {
   applyConsent(value);
 
   if (value === "accepted" && !window.__emevAnalyticsLoaded) {
-    loadGoogleTagManager();
     loadDirectGoogleTags();
+    if (!hasDirectGoogleTag) {
+      loadGoogleTagManager();
+    }
     window.__emevAnalyticsLoaded = true;
   }
 };
